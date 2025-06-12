@@ -24,13 +24,19 @@ It is my understanding that a hashmap organizes values into groups such as numbe
 
 Example:
 ```cpp
-#include "IntegerHashmap.h"
+#include "hash.h"
 
 int main() {
-    IntegerHashmap map;
-    map.insert(42);
-    map.insert(35);
-    // ... other operations
+    DataHash hash;
+    /*  hashes the first 100 values 1-100
+        tobuckets grouped by value%10
+    */
+    for(int i = 1; i <= 100; i++){
+        DataNode *phNode = new DataNode(i);
+        hash.addNode(phNode);
+    }
+    //  prints the buckets and the values
+    hash.printMap();
     return 0;
 }
 ```
